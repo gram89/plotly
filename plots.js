@@ -41,41 +41,63 @@
 // };
 // Plotly.newPlot("plotArea",[trace],layout);
 
-let words =["abc","def","ghi"];
-let caps = words.map(words => words.toUpperCase());
-console.log(caps);
+// let words =["abc","def","ghi"];
+// let caps = words.map(words => words.toUpperCase());
+// console.log(caps);
 
-let numbers = [1,2,3,4,5];
-let plusFive = numbers.map(function(five){
-    return five+5;
-});
-console.log(plusFive);
+// let numbers = [1,2,3,4,5];
+// let plusFive = numbers.map(function(five){
+//     return five+5;
+// });
+// console.log(plusFive);
 
-var cities = [
-    {
-      "Rank": 1,
-      "City": "San Antonio ",
-      "State": "Texas",
-      "Increase_from_2016": "24208",
-      "population": "1511946"
-    },
-    {
-      "Rank": 2,
-      "City": "Phoenix ",
-      "State": "Arizona",
-      "Increase_from_2016": "24036",
-      "population": "1626078"
-    },
-    {
-      "Rank": 3,
-      "City": "Dallas",
-      "State": "Texas",
-      "Increase_from_2016": "18935",
-      "population": "1341075"
-    }
-];
+// var cities = [
+//     {
+//       "Rank": 1,
+//       "City": "San Antonio ",
+//       "State": "Texas",
+//       "Increase_from_2016": "24208",
+//       "population": "1511946"
+//     },
+//     {
+//       "Rank": 2,
+//       "City": "Phoenix ",
+//       "State": "Arizona",
+//       "Increase_from_2016": "24036",
+//       "population": "1626078"
+//     },
+//     {
+//       "Rank": 3,
+//       "City": "Dallas",
+//       "State": "Texas",
+//       "Increase_from_2016": "18935",
+//       "population": "1341075"
+//     }
+// ];
 
-var cityNames = cities.map(function(city){
-    return city.City;
-});
-console.log(cityNames);
+// var cityNames = cities.map(function(city){
+//     return city.City;
+// });
+// console.log(cityNames);
+
+// Using the filter method with map
+
+// let numbers =[2,4,6,8,1,3,5,7,8,10];
+
+// let evenNumbers = numbers.filter(number=>number%2==-0);
+
+// console.log(evenNumbers);
+
+// var words = ['seal', 'dog', 'scorpion', 'orangutan', 'salamander'];
+
+// let wordsWithS=words.filter(function (word){
+//     return word.startsWith("s")
+// });
+
+// console.log(wordsWithS);
+
+//Using Arrow Functions to Sort
+
+// let age = [36,12,34,67,89,100,99];
+// let sortedAge = age.sort((a,b)=>a-b);
+// console.log(sortedAge);
