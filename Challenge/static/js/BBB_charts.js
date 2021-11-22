@@ -124,13 +124,24 @@ function buildCharts(sample) {
       {
         domain: { x: [0, 1], y: [0, 1] },
         value: wfreq,
-        title: { text: "Belly Button Washing Frequency" },
+        title: { text: "Scrubs per week" },
         type: "indicator",
-        mode: "gauge+number"
+        mode: "gauge+number",
+        gauge: {
+          axis: {range: [0,10],tickwidth: 1, tickcolor: "black"},
+          steps:[
+            {range:[0,2], color:"red"},
+            {range:[2,4], color:"orange"},
+            {range:[4,6], color:"yellow"},
+            {range:[6,8], color:"lightgreen"},
+            {range:[8,10], color:"green"},
+          ],
+          bar: {color: "black"}
+        }
       }
     ];
     
-    var gaugeLayout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+    var gaugeLayout = { title: "Belly Button Washing Frequency" };
     Plotly.newPlot('gauge', gaugeData, gaugeLayout);
   });
 }
