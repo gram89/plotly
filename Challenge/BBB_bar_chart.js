@@ -59,18 +59,24 @@ function buildCharts(sample) {
   d3.json("samples.json").then((data) => {
     // 3. Create a variable that holds the samples array. 
         let otuData = data.samples;
+        let metadata = data.metadata;
     // 4. Create a variable that filters the samples for the object with the desired sample number.
         let filteredOtuData = otuData.filter(sampleObj => sampleObj.id == sample);
+        let filteredMetaData = metadata.filter(sampleObj => sampleObj.id == sample);
+        console.log(filteredMetaData);
     //  5. Create a variable that holds the first sample in the array.
         let result = filteredOtuData[0];
+        let resultMeta = filteredMetaData[0];
     console.log(result);
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
         let otuId = result.otu_ids;
         let labels = result.otu_labels;
         let sampleValues = result.sample_values;
+        let wfreq = parseFloat(resultMeta.wfreq);
     console.log(otuId.slice(0,10).reverse());
     console.log(labels.slice(0,10).reverse());
     console.log(sampleValues.slice(0,10).reverse());
+    console.log(wfreq);
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
@@ -113,5 +119,18 @@ function buildCharts(sample) {
 
     }];
     Plotly.newPlot("bubble",bubbleData,bubbleChart);
+    // creating the gauge chart
+    let gaugeData = [
+      {
+        domain: { x: [0, 1], y: [0, 1] },
+        value: wfreq,
+        title: { text: "Belly Button Washing Frequency" },
+        type: "indicator",
+        mode: "gauge+number"
+      }
+    ];
+    
+    var gaugeLayout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+    Plotly.newPlot('gauge', gaugeData, gaugeLayout);
   });
 }
